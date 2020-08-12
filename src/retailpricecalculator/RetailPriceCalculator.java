@@ -21,7 +21,26 @@ public class RetailPriceCalculator extends JFrame{
     private double wholesalePrice;
     private double markupCost;
     
-    
+    /**
+     * Constructor
+     */
+    public RetailPriceCalculator(){
+        // Set window title
+        setTitle("Retail Price Calculator");
+        
+        // Set close operation
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Call the buildPanel method
+        buildPanel();
+        
+        // Add panel to the frame
+        add(panel);
+        
+        // Display the window
+        setVisible(true);
+        
+    }
 
     /**
      * @param args the command line arguments
