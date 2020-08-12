@@ -2,6 +2,7 @@
 package retailpricecalculator;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *  This program allows users to enter the cost and markup of an item, then
@@ -12,7 +13,7 @@ public class RetailPriceCalculator extends JFrame{
     
     private JLabel wholesale;
     private JLabel markup;
-    private JLabel retail;
+    //private JLabel retail;
     JTextField wholesaleTxt;
     JTextField markupTxt;
     JButton calcButton;
@@ -53,7 +54,7 @@ public class RetailPriceCalculator extends JFrame{
         // Create labels
         wholesale = new JLabel("Wholesale price:");
         markup = new JLabel("Markup");
-        retail = new JLabel("Retail price: ");
+        //retail = new JLabel("Retail price: ");
         
         // Create text fields
         wholesaleTxt = new JTextField();
@@ -72,7 +73,32 @@ public class RetailPriceCalculator extends JFrame{
         panel.add(markup);
         panel.add(markupTxt);
         panel.add(calcButton);
-        panel.add(retail);
+        //panel.add(retail);
+    }
+    
+    /**
+     * CalcButtonListener is an action listener class for the Calculate button.
+     */
+    private class CalcButtonListener implements ActionListener{
+        /**
+         * The actionPerformed method executes when the user clicks on the 
+         * Calculate button.
+         * @param e The event object
+         */
+        public void actionPerformed(ActionEvent e){
+            
+            double retailPrice;
+            
+            String input1 = wholesaleTxt.getText();
+            String input2 = markupTxt.getText();
+            
+            wholesalePrice = Double.parseDouble(input1);
+            markupCost = Double.parseDouble(input2);
+            
+            retailPrice = wholesalePrice * (1 + markupCost);
+            
+            JOptionPane.showMessageDialog(null, "Retail price: $" + retailPrice);
+        }
     }
 
     /**
