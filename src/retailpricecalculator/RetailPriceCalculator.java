@@ -28,6 +28,8 @@ public class RetailPriceCalculator extends JFrame{
         // Set window title
         setTitle("Retail Price Calculator");
         
+        setSize(400, 300);
+        
         // Set close operation
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -40,6 +42,37 @@ public class RetailPriceCalculator extends JFrame{
         // Display the window
         setVisible(true);
         
+    }
+    
+    /**
+     * The buildPanel method adds the labels, text fields and a button to the
+     * panel
+     */
+    private void buildPanel(){
+        
+        // Create labels
+        wholesale = new JLabel("Wholesale price:");
+        markup = new JLabel("Markup");
+        retail = new JLabel("Retail price: ");
+        
+        // Create text fields
+        wholesaleTxt = new JTextField();
+        markupTxt = new JTextField();
+        
+        // Create the button and add action listener to the button
+        calcButton = new JButton("Calculate");
+        calcButton.addActionListener(new CalcButtonListener());
+        
+        // Create the panel
+        panel = new JPanel();
+        
+        // Add components to the panel
+        panel.add(wholesale);
+        panel.add(wholesaleTxt);
+        panel.add(markup);
+        panel.add(markupTxt);
+        panel.add(calcButton);
+        panel.add(retail);
     }
 
     /**
