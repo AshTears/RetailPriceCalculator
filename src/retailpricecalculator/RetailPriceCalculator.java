@@ -13,7 +13,7 @@ public class RetailPriceCalculator extends JFrame{
     
     private JLabel wholesale;
     private JLabel markup;
-    //private JLabel retail;
+    
     JTextField wholesaleTxt;
     JTextField markupTxt;
     JButton calcButton;
@@ -53,12 +53,11 @@ public class RetailPriceCalculator extends JFrame{
         
         // Create labels
         wholesale = new JLabel("Wholesale price:");
-        markup = new JLabel("Markup");
-        //retail = new JLabel("Retail price: ");
+        markup = new JLabel("Markup");       
         
         // Create text fields
-        wholesaleTxt = new JTextField();
-        markupTxt = new JTextField();
+        wholesaleTxt = new JTextField(10);
+        markupTxt = new JTextField(10);
         
         // Create the button and add action listener to the button
         calcButton = new JButton("Calculate");
@@ -73,7 +72,7 @@ public class RetailPriceCalculator extends JFrame{
         panel.add(markup);
         panel.add(markupTxt);
         panel.add(calcButton);
-        //panel.add(retail);
+        
     }
     
     /**
@@ -102,10 +101,12 @@ public class RetailPriceCalculator extends JFrame{
     }
 
     /**
+     * main method
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        new RetailPriceCalculator();
     }
     
 }
